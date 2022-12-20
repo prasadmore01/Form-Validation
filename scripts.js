@@ -16,14 +16,26 @@ let validation = ()=>{
     if(mail == ""){
         console.log(document.getElementById("mail-p").innerHTML = "Email Id is Required");
         return false;
-    }else {
+    }
+    // regex for email validation
+    else if(!mail.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)){
+        console.log(document.getElementById("mail-p").innerHTML = "Email Id is Invalid");
+        return false;
+    }   
+    else {
         console.log((document.getElementById("mail-p").innerHTML = ""));
     }
 
     if(mno == ""){
         console.log(document.getElementById("mno-p").innerHTML = "Mobile No is Required");
         return false;
-    }else {
+    }
+    // isNan() function is used to check whether the value is a number or not, if not then it will return true
+    else if(isNaN(mno)){
+        console.log(document.getElementById("mno-p").innerHTML = "Mobile No is Invalid");
+        return false;
+    }
+    else {
         console.log((document.getElementById("mno-p").innerHTML = ""));
     }
 
